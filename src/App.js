@@ -6,7 +6,7 @@ import SignUp from './component/auth/signup'
 import Dashboard from './component/dashboard/dashboard'
 import Cookies from 'universal-cookie'
 
-import './index.css'
+import styles from './component/auth/Auth.module.css';
 
 function App() {
 
@@ -21,23 +21,27 @@ function App() {
       setToken(cookies.get('token'));
     }
   }, [cookies, token]);
-  
+
   if (!token) {
     return (
       <Router>
-      <div className="App">
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Routes>
-              <Route exact path="/" element={<Login setToken={setToken} />} />
-              <Route path="/sign-in" element={<Login setToken={setToken} />} />
-              <Route path="/sign-up" element={<SignUp />} />
-              <Route path="*" element={<Login setToken={setToken} />} />
-            </Routes>
+        <div className={styles.App}>
+          <div className={styles['auth-wrapper']}>
+            <div className={styles['auth-box-sizing']}>
+              <div className={styles['auth-body']}>
+                <div className={styles['auth-inner']}>
+                  <Routes>
+                    <Route exact path="/" element={<Login setToken={setToken} />} />
+                    <Route path="/sign-in" element={<Login setToken={setToken} />} />
+                    <Route path="/sign-up" element={<SignUp />} />
+                    <Route path="*" element={<Login setToken={setToken} />} />
+                  </Routes>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </Router>
+      </Router>
     )
   }else{
     cookies.set('token', token, { path: '/' });
@@ -45,9 +49,9 @@ function App() {
 
   return (
     <Router>
-            <Routes>
-              <Route exact path="/" element={<Dashboard />} />
-            </Routes>
+      <Routes>
+        <Route exact path="/" element={<Dashboard />} />
+      </Routes>
     </Router>
   )
 }
