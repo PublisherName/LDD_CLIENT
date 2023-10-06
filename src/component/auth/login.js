@@ -77,7 +77,7 @@ const Login = ({ setToken }) => {
       <div className="mb-3">
         <label>Password</label>
         <input
-          type="text"
+          type="password"
           className="form-control"
           placeholder="Enter password"
           name="password"

@@ -50,7 +50,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Dashboard />} />
+        <Route exact path="/" element={<Dashboard setToken={setToken}/>} />
       </Routes>
     </Router>
   )

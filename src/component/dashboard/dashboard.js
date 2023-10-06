@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import Logout from '../auth/logout'
 
-function dashboard() {
+function dashboard({setToken}) {
+  
   return (
     <div>
       <h1>Dashboard</h1>
-      <Link to='/logout'>Logout</Link>
+      <Logout setToken={setToken}/>
     </div>
   )
 }
