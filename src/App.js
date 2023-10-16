@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import Dashboard from './component/dashboard/dashboard'
 import Cookies from 'universal-cookie'
 
-import SignUpForm from './component/auth/view/SignupForm'
+import DashboardController from './component/dashboard/controller/DashboardController'
 import ForgotPasswordForm from './component/auth/view/ForgotPasswordForm'
+import LoginController from './component/auth/controller/LoginController'
+import SignupController from './component/auth/controller/SignupController'
 
 import './assets/sb-admin-2/css/sb-admin-2.min.css'
-import LoginController from './component/auth/controller/LoginController'
+
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
     return (
       <Router>
         <Routes>
-          <Route path="/sign-up" element={<SignUpForm />} />
+          <Route path="/sign-up" element={<SignupController />} />
           <Route path="/forgot-password" element={<ForgotPasswordForm />} />
           <Route path="*" element={<LoginController setToken={setToken}/>} />          
         </Routes>
@@ -42,7 +43,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Dashboard setToken={setToken} />} />
+        <Route exact path="*" element={<DashboardController setToken={setToken} />} />
       </Routes>
     </Router>
   )

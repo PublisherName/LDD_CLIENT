@@ -1,7 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { Alert } from 'react-bootstrap';
 
-function SignupNew() {
+function SignupNew(
+  {
+    formData,
+    handleInputChange,
+    showAlert,
+    setShowAlert,
+    errorMessage,
+    handleSubmit,
+    validateForm
+  }
+) {
   return (
     <div className="card o-hidden border-0 shadow-lg my-5">
       <div className="card-body p-0">
@@ -12,12 +23,19 @@ function SignupNew() {
               <div className="text-center">
                 <h1 className="h4 text-gray-900 mb-4">Create an Account!</h1>
               </div>
-              <form className="user">
+              <form className="user" onSubmit={handleSubmit}>
+                {showAlert && (
+                  <Alert variant={errorMessage ? "danger" : "success"} onClose={() => setShowAlert(false)} dismissible>
+                    {errorMessage ? errorMessage : "Signup successful!"}
+                  </Alert>
+                )}
                 <div className="form-group">
                   <input className="form-control form-control-user"
                     type="text"
                     name="username"
-                    id="exampleInputUsername"
+                    value={formData.username}
+                    onChange= {handleInputChange}
+                    id="username"
                     placeholder="Username"
                     required
                   />
@@ -26,8 +44,10 @@ function SignupNew() {
                   <div className="col-sm-6 mb-3 mb-sm-0">
                     <input className="form-control form-control-user"
                       type="text"
-                      name="firstName"
-                      id="exampleFirstName"
+                      name="first_name"
+                      value={formData.first_name}
+                      id="first_name"
+                      onChange= {handleInputChange}
                       placeholder="First Name"
                       required
                     />
@@ -35,8 +55,10 @@ function SignupNew() {
                   <div className="col-sm-6">
                     <input className="form-control form-control-user"
                       type="text"
-                      name="lastName"
-                      id="exampleLastName"
+                      name="last_name"
+                      id="last_name"
+                      value={formData.last_name}
+                      onChange= {handleInputChange}
                       placeholder="Last Name"
                       required
                     />
@@ -46,7 +68,9 @@ function SignupNew() {
                   <input className="form-control form-control-user"
                     type="email"
                     name="email"
-                    id="exampleInputEmail"
+                    value={formData.email}
+                    onChange= {handleInputChange}
+                    id="email"
                     placeholder="Email Address"
                     required
                   />
@@ -56,7 +80,9 @@ function SignupNew() {
                     <input className="form-control form-control-user"
                       type="password"
                       name="password"
-                      id="exampleInputPassword"
+                      value={formData.password}
+                      id="password"
+                      onChange= {handleInputChange}
                       placeholder="Password"
                       required
                     />
@@ -64,14 +90,16 @@ function SignupNew() {
                   <div className="col-sm-6">
                     <input className="form-control form-control-user"
                       type="password"
-                      name="password-confirm"
-                      id="exampleRepeatPassword"
+                      name="password_confirm"
+                      id="password_confirm"
+                      value={formData.password_confirm}
+                      onChange= {handleInputChange}
                       placeholder="Repeat Password"
                       required
                     />
                   </div>
                 </div>
-                <button className="btn btn-primary btn-user btn-block" type="submit">
+                <button className="btn btn-primary btn-user btn-block" type="submit" disabled={!validateForm()}>
                   Register Account
                 </button>
                 <hr />

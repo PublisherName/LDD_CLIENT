@@ -23,7 +23,6 @@ function LoginController({ setToken }) {
                 "login": email,
                 password: password
             });
-                        
             if (token) {
                 setToken(token);
                 setShowAlert(true);
