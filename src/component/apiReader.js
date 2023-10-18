@@ -1,4 +1,6 @@
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const IS_DEV = process.env.REACT_APP_API_IS_DEV;
+
+const API_BASE_URL = IS_DEV === 'true' ? process.env.REACT_APP_API_BASE_URL_DEV : process.env.REACT_APP_API_BASE_URL_PROD;
 
 async function API_STATUS_CHECK() {
     const checkUrl = `${API_BASE_URL}/status/`
