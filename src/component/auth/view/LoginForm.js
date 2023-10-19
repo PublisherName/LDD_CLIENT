@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Alert } from "react-bootstrap";
 
 function LoginForm({
-    email,
+    username,
     password,
     setPassword,
-    setEmail,
+    setUsername,
     handleSubmit,
     showAlert,
     setShowAlert,
@@ -35,13 +35,13 @@ function LoginForm({
                                                             </Alert>
                                                         )}
                                                         <input className="form-control form-control-user"
-                                                            type="email"
-                                                            id="email"
-                                                            name="email"
-                                                            value={email}
-                                                            onChange={(e) => setEmail(e.target.value)}
-                                                            aria-describedby="emailHelp"
-                                                            placeholder="Enter Email Address..."
+                                                            type="text"
+                                                            id="username"
+                                                            name="username"
+                                                            value={username}
+                                                            onChange={(e) => setUsername(e.target.value)}
+                                                            aria-describedby="usernameHelp"
+                                                            placeholder="Enter your username ... "
                                                         />
                                                     </div>
                                                     <div className="form-group">

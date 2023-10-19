@@ -6,21 +6,20 @@ import LoginForm from '../view/LoginForm';
 import LoginModel from '../model/LoginModel';
 
 function LoginController({ setToken }) {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showAlert, setShowAlert] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
     function validateForm() {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email) > 0 && password.length > 0;
+        return username.length > 0 && password.length > 0;
     }
 
     const handleSubmit = async e => {
         e.preventDefault();
         try{
             const token = await LoginModel({
-                "login": email,
+                "login": username,
                 password: password
             });
             if (token) {
@@ -44,8 +43,8 @@ function LoginController({ setToken }) {
             errorMessage={errorMessage}
             setPassword={setPassword}
             password={password}
-            setEmail={setEmail}
-            email={email}
+            setUsername={setUsername}
+            username={username}
             validateForm = {validateForm}
             handleSubmit = {handleSubmit}
          />
