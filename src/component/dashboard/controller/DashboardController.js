@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+
+import DashboardView from '../view/DashboardView';
 
 function DashboardController({setToken}) {
   
@@ -12,10 +13,7 @@ function DashboardController({setToken}) {
 
   return (
     <>
-    <div>
-      <h1>Dashboard</h1>
-      <Link to='/' onClick={handleLogout} className='btn btn-danger'>Logout</Link>
-    </div>
+      <DashboardView handleLogout={handleLogout} />
     </>
   )
 }
