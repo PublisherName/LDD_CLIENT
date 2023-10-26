@@ -1,6 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-function DashboardBSModel({handleLogout}) {
+
+function DashboardBSModel({ handleLogout }) {
+
+  const handleLogoutClick = () => {
+    const modalBackdrop = document.querySelector('.modal-backdrop');
+    if (modalBackdrop) {
+      modalBackdrop.parentNode.removeChild(modalBackdrop);
+    }
+    handleLogout();
+  };
+  
   return (
     <>
 
@@ -21,7 +31,7 @@ function DashboardBSModel({handleLogout}) {
             <div className="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div className="modal-footer">
               <button className="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              <Link to='/' onClick={handleLogout} className='btn btn-primary'>Logout</Link>
+              <Link to='/' onClick={handleLogoutClick} className='btn btn-primary'>Logout</Link>
             </div>
           </div>
         </div>
