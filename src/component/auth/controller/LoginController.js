@@ -10,12 +10,14 @@ function LoginController({ setToken }) {
     const [password, setPassword] = useState("");
     const [showAlert, setShowAlert] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     function validateForm() {
         return username.length > 0 && password.length > 0;
     }
 
     const handleSubmit = async e => {
+        setIsLoading(true);
         e.preventDefault();
         try{
             const token = await LoginModel({
@@ -27,10 +29,12 @@ function LoginController({ setToken }) {
                 setShowAlert(true);
 
             } else {
+                setIsLoading(false);
                 setShowAlert(true);
                 setErrorMessage("Login failed");
             }
         }catch(error){
+            setIsLoading(false);
             setShowAlert(true);
             setErrorMessage(error.message);
         }
@@ -47,6 +51,7 @@ function LoginController({ setToken }) {
             username={username}
             validateForm = {validateForm}
             handleSubmit = {handleSubmit}
+            isLoading={isLoading}
          />
     )
 }

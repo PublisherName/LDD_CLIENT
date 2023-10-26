@@ -18,6 +18,7 @@ function SignupController() {
   const navigate = useNavigate();
   const [showAlert, setShowAlert] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -30,6 +31,7 @@ function SignupController() {
   }
 
   const handleSubmit = async e => {
+    setIsLoading(true)
     try{
       e.preventDefault();
       const API_RESPONSE = await SignupModel(formData);
@@ -41,6 +43,7 @@ function SignupController() {
 
       }
     }catch(error){
+      setIsLoading(false);
       setShowAlert(true);
       setErrorMessage(error.message);
     }
@@ -56,6 +59,7 @@ function SignupController() {
         errorMessage={errorMessage}
         validateForm={validateForm}
         handleSubmit={handleSubmit}
+        isLoading={isLoading}
       />
     </>
   )
