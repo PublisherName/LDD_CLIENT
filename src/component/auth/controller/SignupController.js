@@ -37,10 +37,7 @@ function SignupController() {
       const API_RESPONSE = await SignupModel(formData);
       if (API_RESPONSE.hasOwnProperty('id'))
       {
-        setShowAlert(true);
-        setErrorMessage(null)
-        navigate('/login');
-
+        navigate('/login',{ state: { showAlert: true, errorMessage:"Registration Successful."} });
       }
     }catch(error){
       setIsLoading(false);

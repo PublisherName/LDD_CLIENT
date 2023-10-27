@@ -31,7 +31,7 @@ function LoginForm({
                                             <form className="user" onSubmit={handleSubmit}>
                                                 <div className="form-group">
                                                     {showAlert && (
-                                                        <Alert variant={errorMessage ? "danger" : "success"} onClose={() => setShowAlert(false)} dismissible>
+                                                        <Alert variant={errorMessage !=='Registration Successful.' ? "danger" : "success"} onClose={() => setShowAlert(false)} dismissible>
                                                             {errorMessage ? errorMessage : "Login successful!"}
                                                         </Alert>
                                                     )}
