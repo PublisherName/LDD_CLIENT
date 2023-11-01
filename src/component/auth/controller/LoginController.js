@@ -24,7 +24,7 @@ function LoginController({ setToken }) {
         e.preventDefault();
         try{
             const token = await LoginModel({
-                "login": username,
+                "username": username,
                 password: password
             });
             if (token) {

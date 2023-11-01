@@ -12,7 +12,7 @@ function SignupController() {
     last_name: '',
     email: '',
     password: '',
-    password_confirm: ''
+    confirm_password: ''
   });
 
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ function SignupController() {
 
   function validateForm() {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(formData.email) > 0 && formData.password.length > 0 && formData.password_confirm.length > 0 && formData.password === formData.password_confirm && formData.username.length > 0 && formData.first_name.length > 0 && formData.last_name.length > 0;
+    return regex.test(formData.email) > 0 && formData.password.length > 0 && formData.confirm_password.length > 0 && formData.password === formData.confirm_password && formData.username.length > 0 && formData.first_name.length > 0 && formData.last_name.length > 0;
   }
 
   const handleSubmit = async e => {
@@ -35,9 +35,9 @@ function SignupController() {
     try{
       e.preventDefault();
       const API_RESPONSE = await SignupModel(formData);
-      if (API_RESPONSE.hasOwnProperty('id'))
+      if (API_RESPONSE.hasOwnProperty('status'))
       {
-        navigate('/login',{ state: { showAlert: true, errorMessage:"Registration Successful."} });
+        navigate('/login',{ state: { showAlert: true, errorMessage:"Registration Successful. Please, verify your mail to login."} });
       }
     }catch(error){
       setIsLoading(false);

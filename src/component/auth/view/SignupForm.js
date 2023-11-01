@@ -92,9 +92,9 @@ function SignupNew(
                     <div className="col-sm-6">
                       <input className="form-control form-control-user"
                         type="password"
-                        name="password_confirm"
-                        id="password_confirm"
-                        value={formData.password_confirm}
+                        name="confirm_password"
+                        id="confirm_password"
+                        value={formData.confirm_password}
                         onChange={handleInputChange}
                         placeholder="Repeat Password"
                         required

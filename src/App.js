@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Cookies from 'universal-cookie'
 
 import DashboardController from './component/dashboard/controller/DashboardController'
-import ForgotPasswordForm from './component/auth/view/ForgotPasswordForm'
+import ForgotPasswordController from './component/auth/controller/ForgotPasswordController'
 import LoginController from './component/auth/controller/LoginController'
 import SignupController from './component/auth/controller/SignupController'
 
@@ -31,7 +31,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/sign-up" element={<SignupController />} />
-          <Route path="/forgot-password" element={<ForgotPasswordForm />} />
+          <Route path="/forgot-password" element={<ForgotPasswordController />} />
           <Route path="*" element={<LoginController setToken={setToken}/>} />          
         </Routes>
       </Router>
