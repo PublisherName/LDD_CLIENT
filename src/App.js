@@ -8,6 +8,8 @@ import ForgotPasswordController from './component/auth/controller/ForgotPassword
 import LoginController from './component/auth/controller/LoginController'
 import SignupController from './component/auth/controller/SignupController'
 
+import ActivateAccountController from './component/auth/controller/ActivateAccountController'
+
 import './assets/sb-admin-2/css/sb-admin-2.min.css'
 
 
@@ -32,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/sign-up" element={<SignupController />} />
           <Route path="/forgot-password" element={<ForgotPasswordController />} />
+          <Route path="/activate/:email/:code" element={<ActivateAccountController />} />
           <Route path="*" element={<LoginController setToken={setToken}/>} />          
         </Routes>
       </Router>
