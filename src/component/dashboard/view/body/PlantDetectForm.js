@@ -11,11 +11,11 @@ function PlantDetectForm() {
     const [disease, setDisease] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-
     
     function handleImageSelect(event) {
         setDisease('');
         setError('');
+
         const file = event.target.files[0];
         const reader = new FileReader();
         reader.onloadend = function () {
@@ -28,7 +28,7 @@ function PlantDetectForm() {
             formData.append('image', file);
 
             setIsLoading(true);
-            fetch('http://localhost:8080/plant-disease-detection/', {
+            fetch('http://smartkrishi.me/plant-disease-detection/', {
                 method: 'POST',
                 body: formData,
                 headers: {
