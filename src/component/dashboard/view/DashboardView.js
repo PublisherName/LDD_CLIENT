@@ -3,7 +3,7 @@ import DashboardSidebar from './entiry/DashboardSidebar'
 import DashboardTopbar from './entiry/DashboardTopbar'
 import DashboardFooter from './entiry/DashboardFooter'
 import DashboardBSModel from './entiry/DashboardBSModel'
-import DashboardReport from './entiry/DashboardReport'
+import PlantDetectForm from './body/PlantDetectForm'
 
 function DashboardView({ handleLogout }) {
     return (
@@ -15,7 +15,7 @@ function DashboardView({ handleLogout }) {
                         <div id="content">
                             <DashboardTopbar />
                             <div className="container-fluid">
-                                <DashboardReport />
+                                <PlantDetectForm />
                             </div>
                         </div>
                         <DashboardFooter />

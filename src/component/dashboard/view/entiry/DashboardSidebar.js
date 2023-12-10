@@ -22,7 +22,7 @@ function DashboardSidebar() {
 
                 <hr className="sidebar-divider" />
 
-                <div className="sidebar-heading">
+                {/* <div className="sidebar-heading">
                     Interface
                 </div>
 
@@ -42,7 +42,7 @@ function DashboardSidebar() {
                 </li>
 
                 <hr className="sidebar-divider d-none d-md-block" />
-
+ */}
                 <div className="text-center d-none d-md-inline">
                     <button className="rounded-circle border-0" id="sidebarToggle"></button>
                 </div>
