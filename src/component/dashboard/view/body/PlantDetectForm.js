@@ -28,7 +28,7 @@ function PlantDetectForm() {
             formData.append('image', file);
 
             setIsLoading(true);
-            fetch('http://smartkrishi.me/plant-disease-detection/', {
+            fetch('https://smartkrishi.me/plant-disease-detection/', {
                 method: 'POST',
                 body: formData,
                 headers: {
